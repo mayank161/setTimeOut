@@ -12,7 +12,7 @@ function getUser(){
         let count = 1;
         users.forEach((user) => {
             detail = `<h2>name = ${user.Name} email = ${user.Email}<h2>`;
-            document.body.innerHTML += detail;
+            document.getElementById('callback').innerHTML += detail;
             lastModify(count++);
         });
     }, 1000);
