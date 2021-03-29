@@ -69,3 +69,15 @@ const preMovie = async () => {
 preMovie().then((m) => console.log(`person3: shows ${m}`));
 console.log('person4: shows ticket');
 console.log('person5: shows ticket');
+
+// use of await amd promise.all for independent things
+
+const items =  setTimeout(async () => {
+
+    const getBiscuits = new Promise((resolve,reject) =>  resolve('get it'));
+
+    const getOtherBiscuits = new Promise((resolve,reject) => resolve('get them'));
+
+    let [biscuit1,biscuit2] = await Promise.all([getBiscuits,getOtherBiscuits]);
+    console.log(`${biscuit1},${biscuit2}`);
+},3000);
