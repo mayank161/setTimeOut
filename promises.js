@@ -23,7 +23,7 @@ function createUser(use) {
         setTimeout(() => {
             user.push(use);
             const error = false;
-            if(!error) { resolve(); }
+            if(!error) { resolve(updateLastUserActiveTime); }
             else { reject('something went wrong'); }
         },1000)
     });
@@ -56,5 +56,7 @@ createUser({Name: 'Pius', Email: 'pius52@gmail.com'}).then(getUser).catch(err =>
 const promise1 = Promise.resolve('run by promise.resolve');
 const promise2 = 10;
 const promise3 = new Promise((resolve,reject) => setTimeout(resolve,2000,'run after 2s'));
+
+var updateLastUserActiveTime = Promise.resolve();
 
 Promise.all([promise1,promise2,promise3]).then(values => console.log(values));
